@@ -1,0 +1,179 @@
+:root {
+    --mainColor:rgba(0, 0, 0, 0.479);
+    --white: white;
+}
+
+body {
+    margin: 0;
+    background-color: var(--white);
+}
+
+#view-container {
+    display: flex;
+    flex-direction: column nowrap;
+    min-height: 100vh;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-content: space-around;
+    align-items: stretch;
+    font-size: 15px;
+}
+
+header {
+    display: block;
+    box-sizing: border-box;
+    min-height: 100px;
+    background-color: var(--white);
+    padding-bottom: 0px;
+    z-index: 1;
+}
+
+.header {
+    position: sticky; top: 0;
+}
+
+.header-content-container {
+    display: flex;
+    border-bottom: 1px solid var(--mainColor);
+    align-items: center;
+    padding: 12px;
+}
+
+.header-content-container a {
+    text-decoration: none;
+}
+
+.navigation {
+    margin: auto;
+    margin-right: 6px;
+}
+
+.menu-button {
+    background-color: var(--mainColor);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 50px;
+    height: 60px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all .5s ease-in-out;
+    font-size: .6rem;
+    color: var(--white);
+}
+
+.menu-button p {
+    margin: 0px;
+    transform: translateY(20px);
+    padding-bottom: 5px;
+}
+
+.menu-button-burger {
+    width: 30px;
+    height: 4px;
+    background-color: var(--white);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+    transition: all .5s ease-in-out;
+}
+
+.menu-button-burger::before,
+.menu-button-burger::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background-color: var(--white);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+    transition: all .5s ease-in-out;
+}
+
+.menu-button-burger::before {
+    transform: translateY(-12px);
+}
+
+.menu-button-burger::after {
+    transform: translateY(12px);
+}
+
+.menu-button.open .menu-button-burger {
+    background: transparent;
+    box-shadow: none;
+}
+
+.menu-button.open .menu-button-burger::before {
+    transform-origin: center;
+    box-shadow: none;
+    transform: rotate(45deg);
+}
+
+.menu-button.open .menu-button-burger::after {
+    transform-origin: center;
+    box-shadow: none;
+    transform: rotate(-45deg);
+}
+
+.mobile-menu.dropdown-toggle, .menu {
+    display: none;
+}
+
+.mobile-menu.dropdown-toggle {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    padding: 0;
+    text-align: center;
+    height: 0;
+    background-color: var(--mainColor);
+    opacity: 0;
+    overflow: hidden;
+    transition: all .5s ease-in-out;
+}
+
+.mobile-menu.dropdown-toggle a {
+    color:var(--white);
+    text-decoration: none;
+    margin: 0;
+    height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+}
+
+.mobile-menu.dropdown-toggle.open {
+    display: flex;
+    flex: 1 1;
+    background-color: var(--mainColor);
+    height: 300px;
+    visibility: visible;
+    opacity: 1;
+    padding: 0px 10px;
+}
+
+.mobile-menu.dropdown-toggle.open a {
+    margin: auto;
+    height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mobile-menu.dropdown-toggle.open a:active {
+    color: black;
+}
+
+.mobile-menu.dropdown-toggle.open a#currentpage, .mobile-menu.dropdown-toggle a#currentpage{
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--white);
+}
+
+.mobile-menu.dropdown-toggle.open a:hover {
+    letter-spacing: .2rem;
+    transition: letter-spacing .2s ease-in-out;
+}
+
+.mobile-menu.dropdown-toggle.open a#currentpage:hover {
+    text-decoration: none;
+}
